@@ -45,7 +45,7 @@ const Weather: React.FC = () => {
     return date.toLocaleString();
   };
   return (
-    <section className="container mx-auto h-screen ">
+    <section className="container mx-auto min-h-screen ">
       <h4 className="text-4xl font-bold text-center py-12 dark:text-white  ">
         Weather App using open weather API
       </h4>
