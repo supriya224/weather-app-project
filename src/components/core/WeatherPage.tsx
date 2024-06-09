@@ -45,7 +45,7 @@ const Weather: React.FC = () => {
     return date.toLocaleString();
   };
   return (
-    <section className="container mx-auto overflow-hidden h-screen ">
+    <section className="container mx-auto h-screen ">
       <h4 className="text-4xl font-bold text-center py-12 dark:text-white  ">
         Weather App using open weather API
       </h4>
@@ -68,7 +68,7 @@ const Weather: React.FC = () => {
       <div className="flex justify-center items-center m-12 leading-10  ">
         {/* all data fetching from the api */}
         {weatherData && (
-          <div className="bg-gray-100 dark:bg-gradient-to-b from-[#1d2627] to-[#201c25] dark:text-white p-12 shadow-inner rounded-lg shadow-black dark:shadow-white  w-fit">
+          <div className="bg-gray-100 mb-12 h-fit dark:bg-gradient-to-b from-[#1d2627] to-[#201c25] dark:text-white p-12 shadow-inner rounded-lg shadow-black dark:shadow-white  w-fit">
             <div className="  ">
               <h3 className="text-2xl">
                 City name:{' '}
