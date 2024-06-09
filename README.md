@@ -1,4 +1,4 @@
-A simple React and TypeScript application to fetch and display weather data from the OpenWeather API.
+A simple React and TypeScript application to fetch and display weather data from the OpenWeather API. [Deplopy](https://weather-app-project-phi.vercel.app/),
 
 API
 useFetchData
