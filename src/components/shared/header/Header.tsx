@@ -3,8 +3,8 @@ import ThemeToggle from '../../core/darkTheme/ThemeToggle';
 
 function Header() {
   return (
-    <header className="">
-      <section className="container mx-auto  flex justify-between items-center ">
+    <header className="container mx-auto w-auto ">
+      <section className="px-3 flex justify-between items-center  ">
         {/* kraftshala logo */}
         <img
           width={100}
@@ -13,12 +13,12 @@ function Header() {
           loading="lazy"
         />
 
-        <ul className="flex gap-12">
+        <ul className="flex gap-7 items-center justify-center ">
           {/* toggle theme */}
           <ThemeToggle />
           <Link to="/">
             {/* link the home page */}
-            <li className="text-gray-600 hover:text-gray-900 text-xl dark:text-white font-semibold dark:hover:text-gray-400">
+            <li className="text-gray-600 hover:text-gray-900 text-lg dark:text-white font-semibold dark:hover:text-gray-400">
               Home
             </li>
           </Link>
