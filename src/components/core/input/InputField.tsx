@@ -23,7 +23,7 @@ const InputField: React.FC<InputFieldProps> = ({
     <section>
       <div className="flex justify-center   ">
         <input
-          className=" px-12 mx-1 py-3 shadow-inner shadow-black w-fit outline-none "
+          className=" px-12 mx-1 py-3 shadow-inner shadow-black w-fit outline-none dark:bg-gray-200 "
           type="text"
           value={inputValue}
           onChange={handleChange}

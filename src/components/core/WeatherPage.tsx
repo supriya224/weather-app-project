@@ -44,12 +44,13 @@ const Weather: React.FC = () => {
     return date.toLocaleString();
   };
   return (
-    <section className="relative container mx-auto overflow-hidden h-screen">
-      <h4 className="text-4xl font-bold text-center py-12 ">
+    // bg-red-900 sm:bg-pink-700 md:bg-cyan-900 lg:bg-lime-600 xl:bg-zinc-800
+    <section className=" container mx-auto overflow-hidden h-screen ">
+      <h4 className="text-4xl font-bold text-center py-12 dark:text-white  ">
         Weather App using open weather API
       </h4>
 
-      <div className="flex justify-center items-center gap-3">
+      <div className="flex  flex-wrap justify-center items-center gap-3 px-32 ">
         <InputField
           onInputChange={setCity}
           placeholder="Enter the city name...."
@@ -64,9 +65,9 @@ const Weather: React.FC = () => {
         </button>
       </div>
       {error && <p>{error}</p>}
-      <div className="flex justify-center items-center m-12 leading-10 ">
+      <div className="flex justify-center items-center m-12 leading-10  ">
         {weatherData && (
-          <div className="bg-gray-100 p-12 shadow-inner rounded-lg shadow-black w-fit">
+          <div className="bg-gray-100 dark:bg-black dark:text-white p-12 shadow-inner rounded-lg shadow-black dark:shadow-white  w-fit">
             <div className="  ">
               <h3 className="text-2xl">
                 City name:{' '}
