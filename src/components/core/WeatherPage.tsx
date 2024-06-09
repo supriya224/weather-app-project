@@ -1,23 +1,28 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/button-has-type */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/function-component-definition */
+
 import React, { useState } from 'react';
 import { useFetchData } from '../../hooks/UseFetchData';
-// import { getWeatherByCity } from '';
+import InputField from './input/InputField';
 
 interface WeatherData {
   main: {
     temp: number;
+    humidity: number;
   };
   weather: [
     {
       description: string;
     },
   ];
+  wind: {
+    speed: number;
+  };
   name: string;
 }
 
-const WeatherPage: React.FC = () => {
+const Weather: React.FC = () => {
   const [city, setCity] = useState<string>('');
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -34,26 +39,35 @@ const WeatherPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Weather App</h1>
-      <input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city name"
-      />
-      <button onClick={handleFetchWeather}>Get Weather</button>
+    <section className="relative">
+      <h1 className="text-4xl font-bold text-center py-12">Weather App</h1>
+
+      <div className="flex justify-center items-center">
+        <InputField onInputChange={setCity} placeholder="Enter city name" />
+
+        <button
+          type="button"
+          className="bg-blue-400 px-3 py-3 rounded-md shadow-inner shadow-blue-800"
+          onClick={handleFetchWeather}
+        >
+          Search
+        </button>
+      </div>
 
       {error && <p>{error}</p>}
-      {weatherData && (
-        <div>
-          <h2>{weatherData.name}</h2>
-          <p>{weatherData.main.temp}°C</p>
-          <p>{weatherData.weather[0].description}</p>
-        </div>
-      )}
-    </div>
+      <div>
+        {weatherData && (
+          <div className="flex">
+            <h2>{weatherData.name}</h2>
+            <p>{weatherData.main.temp}°C</p>
+            <p>{weatherData.weather[0].description}</p>
+            <p>Humidity: {weatherData.main.humidity}%</p>
+            <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 
-export default WeatherPage;
+export default Weather;
