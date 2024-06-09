@@ -20,6 +20,7 @@ interface WeatherData {
     speed: number;
   };
   name: string;
+  dt: number; // Add the dt field for the timestamp
 }
 
 const Weather: React.FC = () => {
@@ -38,31 +39,62 @@ const Weather: React.FC = () => {
     }
   };
 
+  const formatDate = (timestamp: number) => {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleString();
+  };
   return (
-    <section className="relative">
-      <h1 className="text-4xl font-bold text-center py-12">Weather App</h1>
+    <section className="relative container mx-auto overflow-hidden h-screen">
+      <h4 className="text-4xl font-bold text-center py-12 ">
+        Weather App using open weather API
+      </h4>
 
-      <div className="flex justify-center items-center">
-        <InputField onInputChange={setCity} placeholder="Enter city name" />
+      <div className="flex justify-center items-center gap-3">
+        <InputField
+          onInputChange={setCity}
+          placeholder="Enter the city name...."
+        />
 
         <button
           type="button"
-          className="bg-blue-400 px-3 py-3 rounded-md shadow-inner shadow-blue-800"
+          className="bg-blue-400 px-3 py-3 text-white rounded-md shadow-inner shadow-blue-800"
           onClick={handleFetchWeather}
         >
           Search
         </button>
       </div>
-
       {error && <p>{error}</p>}
-      <div>
+      <div className="flex justify-center items-center m-12 leading-10 ">
         {weatherData && (
-          <div className="flex">
-            <h2>{weatherData.name}</h2>
-            <p>{weatherData.main.temp}°C</p>
-            <p>{weatherData.weather[0].description}</p>
-            <p>Humidity: {weatherData.main.humidity}%</p>
-            <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+          <div className="bg-gray-100 p-12 shadow-inner rounded-lg shadow-black w-fit">
+            <div className="  ">
+              <h3 className="text-2xl">
+                City name:{' '}
+                <span className="font-bold ">{weatherData.name}</span>
+              </h3>
+              <p className="text-2xl">
+                Tempreture:{' '}
+                <span className="font-bold">{weatherData.main.temp}°C</span>
+              </p>
+              <p className="text-2xl">
+                Weather Discription{' '}
+                <span className="font-bold">
+                  {weatherData.weather[0].description}
+                </span>{' '}
+              </p>
+              <p className="text-2xl">
+                Humidity:{' '}
+                <span className="font-bold">{weatherData.main.humidity}%</span>{' '}
+              </p>
+              <p className="text-2xl">
+                Wind Speed:{' '}
+                <span className="font-bold"> {weatherData.wind.speed} m/s</span>
+              </p>
+              <p className="text-2xl">
+                Date and Time:{' '}
+                <span className="font-bold"> {formatDate(weatherData.dt)}</span>
+              </p>
+            </div>
           </div>
         )}
       </div>

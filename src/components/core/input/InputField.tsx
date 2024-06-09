@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/function-component-definition */
-// src/components/input/InputField.tsx
 
 import React, { useState } from 'react';
 
@@ -24,7 +23,7 @@ const InputField: React.FC<InputFieldProps> = ({
     <section>
       <div className="flex justify-center   ">
         <input
-          className="border px-12 mx-1 py-3 shadow-inner shadow-black w-fit"
+          className=" px-12 mx-1 py-3 shadow-inner shadow-black w-fit outline-none "
           type="text"
           value={inputValue}
           onChange={handleChange}

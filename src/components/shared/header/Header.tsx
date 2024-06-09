@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <header className="relative bg-cyan-700 ">
+    <header className="relative bg-gray-200 ">
       <section className="container mx-auto  flex justify-between items-center ">
         <img
           width={100}
@@ -12,7 +12,9 @@ function Header() {
         />
         <ul>
           <Link to="/">
-            <li className="text-white text-xl hover:text-black">Home</li>
+            <li className="text-gray-600 text-xl font-semibold hover:text-black">
+              Home
+            </li>
           </Link>
         </ul>
       </section>
