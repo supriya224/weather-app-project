@@ -4,7 +4,7 @@ import Header from './components/shared/header/Header';
 
 function App() {
   return (
-    <div className="dark:bg-black ">
+    <div className=" dark:bg-gradient-to-b from-[#18282A] to-[#221A2C] ">
       <BrowserRouter>
         <Header />
         <Routes>
