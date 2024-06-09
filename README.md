@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+A simple React and TypeScript application to fetch and display weather data from the OpenWeather API.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API
+useFetchData
+Fetches weather data for a given city from the OpenWeather API.
 
-## Available Scripts
+Parameters:
+city (string): The name of the city to fetch weather data for.
+Returns:
+An object containing weather data including temperature, weather description, humidity, wind speed, and the date and time of the weather data.
+Components
+Header
+Displays the application logo, toggle button for dark/light mode, and navigation to the home page.
 
-In the project directory, you can run:
+InputField
+A reusable input component for capturing user input.
 
-### `npm start`
+Props:
+onInputChange (function): A callback function to handle input changes.
+placeholder (string, optional): Placeholder text for the input field.
+Weather
+Fetches and displays weather data based on user input.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+State:
+city (string): The name of the city.
+weatherData (object | null): The fetched weather data.
+error (string | null): Error message if fetching fails.
+ToggleButton
+Allows the user to switch between dark mode and light mode.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Hooks
+useFetchData
+A custom hook to fetch data using Axios with error handling using try and catch.
 
-### `npm test`
+Parameters:
+url (string): The API endpoint to fetch data from.
+options (object): Axios request configuration options.
+Returns:
+An object containing data, error, and loading state.
+Technologies Used
+React
+TypeScript
+TailwindCSS
+React-Feather
+Axios
+##screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="1440" alt="Screenshot 2024-06-09 at 4 57 17 PM" src="https://github.com/supriya224/weather-app-project/assets/52038704/ecea1589-4fb6-4be1-8a81-01231c88cde3">
