@@ -5,9 +5,8 @@ import WeatherPage from '../components/core/WeatherPage';
 function HomePage() {
   return (
     <MainLayout>
-      <section>
-        <WeatherPage />
-      </section>
+      {/* wheather page */}
+      <WeatherPage />
     </MainLayout>
   );
 }

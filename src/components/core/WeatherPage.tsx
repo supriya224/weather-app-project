@@ -28,6 +28,7 @@ const Weather: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // create a function to handle the button when user will be click on the button
   const handleFetchWeather = async () => {
     try {
       const data = await useFetchData(city);
@@ -38,14 +39,12 @@ const Weather: React.FC = () => {
       setWeatherData(null);
     }
   };
-
+  // function to handle date
   const formatDate = (timestamp: number) => {
     const date = new Date(timestamp * 1000);
     return date.toLocaleString();
   };
-  //  bg-gradient-to-b from-[#c2f3fa] to-[#e5d0ff]
   return (
-    // bg-red-900 sm:bg-pink-700 md:bg-cyan-900 lg:bg-lime-600 xl:bg-zinc-800
     <section className="container mx-auto overflow-hidden h-screen ">
       <h4 className="text-4xl font-bold text-center py-12 dark:text-white  ">
         Weather App using open weather API
@@ -56,7 +55,7 @@ const Weather: React.FC = () => {
           onInputChange={setCity}
           placeholder="Enter the city name...."
         />
-
+        {/* button to handle fetch data */}
         <button
           type="button"
           className="bg-blue-400 px-3 py-3 text-white rounded-md shadow-inner shadow-blue-800"
@@ -67,6 +66,7 @@ const Weather: React.FC = () => {
       </div>
       {error && <p>{error}</p>}
       <div className="flex justify-center items-center m-12 leading-10  ">
+        {/* all data fetching from the api */}
         {weatherData && (
           <div className="bg-gray-100 dark:bg-gradient-to-b from-[#1d2627] to-[#201c25] dark:text-white p-12 shadow-inner rounded-lg shadow-black dark:shadow-white  w-fit">
             <div className="  ">
